@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: dark --default;
 }
+
+.login-card-wrapper {
+  height: calc(100vh - 130px);
+}
