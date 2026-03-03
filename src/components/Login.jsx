@@ -9,6 +9,7 @@ function Login() {
 
     const [emailId, setEmailId] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -21,7 +22,8 @@ function Login() {
             dispatch(addUser(result.data));
             return navigate('/feed');
         }catch(err) {
-            console.log(err);
+            setError('Something went wrong');
+            console.error(err);
         }
     }
 
@@ -57,6 +59,7 @@ function Login() {
                         </fieldset>
 
                     </div>
+                    <p className='text-red'>{error}</p>
                     <div className="card-actions justify-center mt-5">
                         <button className="btn btn-primary w-30" disabled={!emailId || !password} onClick={handleLogin}>Login</button>
                     </div>
