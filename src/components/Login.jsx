@@ -22,8 +22,7 @@ function Login() {
             dispatch(addUser(result.data));
             return navigate('/feed');
         }catch(err) {
-            setError('Something went wrong');
-            console.error(err);
+            setError(err.response.data || 'Something went wrong');
         }
     }
 
@@ -59,7 +58,7 @@ function Login() {
                         </fieldset>
 
                     </div>
-                    <p className='text-red'>{error}</p>
+                    <p className='text-red-700'>{error}</p>
                     <div className="card-actions justify-center mt-5">
                         <button className="btn btn-primary w-30" disabled={!emailId || !password} onClick={handleLogin}>Login</button>
                     </div>
