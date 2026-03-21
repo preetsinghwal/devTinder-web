@@ -20,7 +20,7 @@ function Login() {
                 password
             }, {withCredentials: true})
             dispatch(addUser(result.data));
-            return navigate('/feed');
+            return navigate('/');
         }catch(err) {
             setError(err.response.data || 'Something went wrong');
         }
